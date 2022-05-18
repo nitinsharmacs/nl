@@ -1,0 +1,9 @@
+- [ ] Make `src` and `test` directories
+- [ ] Use an .eslintrc.json
+- [ ] Verify `mocha` exists
+- [ ] Make `testNl.js`
+- [ ] Write an expectation/test case
+- [ ] Make an nl.js
+- [ ] Make `nl` work on file content instead of file
+- [ ] Implement `nl file` first
+- [ ] Experiment on REPL
