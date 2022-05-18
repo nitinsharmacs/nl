@@ -1,16 +1,20 @@
 **TODO:**
 
-- [ ] Make `nl` work on file content instead of file
+- [ ] Provide a default of 1 for `startNum` in `nl`
 - [ ] Implement `nl file` without any fancy options
 - [ ] Investigate how `nl` handles empty lines
+- [ ] Move `splitLines`, `joinLines` and `NEWLINE` to a different lib
 
 **MAYBE:**
 
+- [ ] Consider options as a parameter to `nl`
 - [ ] Consider closure for a counter in `numberedLine` ?
 - [ ] Consider a richer structure to be returned from `numberLines`
 
 **DONE:**
 
+- [x] Implement 'startNum' option on `nl`
+- [x] Make `nl` function work on file content instead of file
 - [x] Extract '\n' to a constant
 - [x] Separate functions to split and join lines
 - [x] Test `numberLines` which now takes lines instead of content

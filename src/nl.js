@@ -4,12 +4,12 @@ const NEWLINE = '\n';
 const splitLines = content => content.split(NEWLINE);
 const joinLines = lines => lines.join(NEWLINE);
 
-const numberLines = lines =>
-  lines.map((line, index) => formatLine(index + 1, line));
+const numberLines = (lines, startNum) =>
+  lines.map((line, index) => formatLine(index + startNum, line));
 
-const nl = content => {
+const nl = (content, startNum) => {
   const lines = splitLines(content);
-  const numberedLines = numberLines(lines);
+  const numberedLines = numberLines(lines, startNum);
   return joinLines(numberedLines);
 };
 
