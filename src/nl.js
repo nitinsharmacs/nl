@@ -1,10 +1,13 @@
 const formatLine = (lineNumber, line) => `${lineNumber}\t${line}`;
 
-const numberLines = content => {
+const numberLines = lines =>
+  lines.map((line, index) => formatLine(index + 1, line));
+
+const nl = content => {
   const lines = content.split('\n');
-  const numberedLines = lines.map((line, index) => formatLine(index + 1, line));
+  const numberedLines = numberLines(lines);
   return numberedLines.join('\n');
 };
 
-exports.numberLines = numberLines;
+exports.nl = nl;
 exports.formatLine = formatLine;
