@@ -7,3 +7,4 @@ const numberLines = content => {
 };
 
 exports.numberLines = numberLines;
+exports.formatLine = formatLine;
