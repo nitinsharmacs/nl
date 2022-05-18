@@ -7,3 +7,8 @@
 - [ ] Should we rename `testNl.js`? Is `nl.js` an appropriate name?
 - [ ] Make `nl` work on file content instead of file
 - [ ] Implement `nl file` first
+- [ ] Consider closure for a counter in `numberedLine` ?
+- [ ] Test `formatLine`
+- [ ] Consider a different contract for `numberLines`
+- [ ] Extract '\n' to a constant
+- [ ] Separate functions to split and join lines
