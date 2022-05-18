@@ -1,7 +1,7 @@
 **TODO:**
 
-- [ ] Provide a default of 1 for `startNum` in `nl`
 - [ ] Implement `nl file` without any fancy options
+- [ ] Provide a default of 1 for `startNum` in `nl`
 - [ ] Investigate how `nl` handles empty lines
 - [ ] Move `splitLines`, `joinLines` and `NEWLINE` to a different lib
 

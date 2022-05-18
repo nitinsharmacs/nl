@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { nl, formatLine, numberLines } = require('../src/nl.js');
+const { nl, formatLine, numberLines } = require('../src/nlLib.js');
 
 describe('nl', () => {
   it('should number an empty line starting from 1', () => {
