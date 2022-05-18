@@ -5,14 +5,15 @@
 - [ ] Make `nl` work on file content instead of file
 - [ ] Implement `nl file` without any fancy options
 - [ ] Investigate how `nl` handles empty lines
-- [ ] Test `numberLines` which now takes lines instead of content
 
 **MAYBE:**
 
 - [ ] Consider closure for a counter in `numberedLine` ?
+- [ ] Consider a richer structure to be returned from `numberLines`
 
 **DONE:**
 
+- [x] Test `numberLines` which now takes lines instead of content
 - [x] ~~Should we rename `testNl.js`? Is `nl.js` an appropriate name?~~ Kept `nl.js`
 - [x] Consider a different contract for `numberLines`
 - [x] Test `formatLine`

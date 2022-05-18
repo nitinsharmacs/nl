@@ -10,4 +10,5 @@ const nl = content => {
 };
 
 exports.nl = nl;
+exports.numberLines = numberLines;
 exports.formatLine = formatLine;

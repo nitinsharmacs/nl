@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { nl, formatLine } = require('../src/nl.js');
+const { nl, formatLine, numberLines } = require('../src/nl.js');
 
 describe('nl', () => {
   it('should number an empty line', () => {
@@ -25,5 +25,23 @@ describe('formatLine', () => {
 
   it('should format an empty line', () => {
     assert.strictEqual(formatLine(1, ''), '1\t');
+  });
+});
+
+describe('numberLines', () => {
+  it('should number a single line', () => {
+    assert.deepStrictEqual(numberLines(['hello']), ['1\thello']);
+    assert.deepStrictEqual(numberLines(['bye']), ['1\tbye']);
+  });
+
+  it('should number multiple lines', () => {
+    assert.deepStrictEqual(numberLines(['hello', 'bye']), [
+      '1\thello',
+      '2\tbye',
+    ]);
+    assert.deepStrictEqual(numberLines(['bye', 'hello']), [
+      '1\tbye',
+      '2\thello',
+    ]);
   });
 });
