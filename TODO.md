@@ -1,9 +1,9 @@
-- [ ] Make `src` and `test` directories
-- [ ] Use an .eslintrc.json
-- [ ] Verify `mocha` exists
-- [ ] Make `testNl.js`
-- [ ] Write an expectation/test case
-- [ ] Make an nl.js
+- [x] Make `src` and `test` directories
+- [x] Use an .eslintrc.js
+- [x] Verify `mocha` exists
+- [x] Make `testNl.js`
+- [x] Write an expectation/test case
+- [x] Make an nl.js
+- [ ] Should we rename `testNl.js`? Is `nl.js` an appropriate name?
 - [ ] Make `nl` work on file content instead of file
 - [ ] Implement `nl file` first
-- [ ] Experiment on REPL
