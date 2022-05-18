@@ -1,4 +1,4 @@
-nl [-bt] [-i incr] [-s sep] [-v startnum] file
+`nl [-bt] [-i incr] [-s sep] [-v startnum] file`
 
 ```
 nl file
