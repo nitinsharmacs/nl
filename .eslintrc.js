@@ -94,5 +94,14 @@ module.exports = {
         'max-statements': 'off',
       },
     },
+    {
+      files: ['nl.js'],
+      rules: {
+        'no-console': 'warn',
+        'max-len': 'warn',
+        'no-magic-numbers': 'off',
+        'max-statements': 'off',
+      },
+    },
   ],
 };

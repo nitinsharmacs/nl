@@ -13,6 +13,12 @@ const nl = (content, startNum) => {
   return joinLines(numberedLines);
 };
 
+const nlMain = (fileName, readFile) => {
+  const content = readFile(fileName, 'utf8');
+  return nl(content, 1);
+};
+
 exports.nl = nl;
 exports.numberLines = numberLines;
 exports.formatLine = formatLine;
+exports.nlMain = nlMain;

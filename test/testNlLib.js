@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { nl, formatLine, numberLines } = require('../src/nlLib.js');
+const { nl, formatLine, numberLines, nlMain } = require('../src/nlLib.js');
 
 describe('nl', () => {
   it('should number an empty line starting from 1', () => {
@@ -53,5 +53,20 @@ describe('numberLines', () => {
   it('should number a single line starting from 2', () => {
     assert.deepStrictEqual(numberLines(['hello'], 2), ['2\thello']);
     assert.deepStrictEqual(numberLines(['bye'], 2), ['2\tbye']);
+  });
+});
+
+const shouldReturn = (mockFile, content) => {
+  return function (fileName, encoding) {
+    assert.equal(mockFile, fileName);
+    assert.equal(encoding, 'utf8');
+    return content;
+  };
+};
+
+describe('nlMain', () => {
+  it('should number the lines of the given file', () => {
+    const mockReadFileSync = shouldReturn('content.txt', 'hello');
+    assert.strictEqual(nlMain('content.txt', mockReadFileSync), '1\thello');
   });
 });
