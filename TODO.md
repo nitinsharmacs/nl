@@ -1,6 +1,5 @@
 **TODO:**
 
-- [ ] Extract '\n' to a constant
 - [ ] Make `nl` work on file content instead of file
 - [ ] Implement `nl file` without any fancy options
 - [ ] Investigate how `nl` handles empty lines
@@ -12,6 +11,7 @@
 
 **DONE:**
 
+- [x] Extract '\n' to a constant
 - [x] Separate functions to split and join lines
 - [x] Test `numberLines` which now takes lines instead of content
 - [x] ~~Should we rename `testNl.js`? Is `nl.js` an appropriate name?~~ Kept `nl.js`
