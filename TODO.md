@@ -1,9 +1,7 @@
 **TODO:**
 
-- [ ] Implement `nl file` without any fancy options
 - [ ] Provide a default of 1 for `startNum` in `nl`
 - [ ] Investigate how `nl` handles empty lines
-- [ ] Move `splitLines`, `joinLines` and `NEWLINE` to a different lib
 
 **MAYBE:**
 
@@ -13,6 +11,8 @@
 
 **DONE:**
 
+- [x] Move `splitLines`, `joinLines` and `NEWLINE` to a different lib
+- [x] Implement `nl file` without any fancy options
 - [x] Implement 'startNum' option on `nl`
 - [x] Make `nl` function work on file content instead of file
 - [x] Extract '\n' to a constant

@@ -1,8 +1,6 @@
-const formatLine = (lineNumber, line) => `${lineNumber}\t${line}`;
+const { splitLines, joinLines } = require('./stringUtils.js');
 
-const NEWLINE = '\n';
-const splitLines = content => content.split(NEWLINE);
-const joinLines = lines => lines.join(NEWLINE);
+const formatLine = (lineNumber, line) => `${lineNumber}\t${line}`;
 
 const numberLines = (lines, startNum) =>
   lines.map((line, index) => formatLine(index + startNum, line));
