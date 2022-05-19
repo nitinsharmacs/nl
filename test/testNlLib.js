@@ -33,12 +33,18 @@ describe('nl', () => {
 
 describe('formatLine', () => {
   it('should format a line with a given line number', () => {
-    assert.strictEqual(formatLine(1, 'hello'), '1\thello');
-    assert.strictEqual(formatLine(2, 'world'), '2\tworld');
+    assert.strictEqual(
+      formatLine({ lineNumber: 1, line: 'hello' }),
+      '1\thello'
+    );
+    assert.strictEqual(
+      formatLine({ lineNumber: 2, line: 'world' }),
+      '2\tworld'
+    );
   });
 
-  it('should format an empty line', () => {
-    assert.strictEqual(formatLine(1, ''), '1\t');
+  it('should not format a non-numbered line', () => {
+    assert.strictEqual(formatLine({ line: 'hello' }), 'hello');
   });
 });
 

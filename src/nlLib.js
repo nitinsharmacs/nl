@@ -1,12 +1,10 @@
 const { createLineCounter } = require('./line.js');
 const { splitLines, joinLines } = require('./stringUtils.js');
 
-const formatLine = (lineNumber, line) => `${lineNumber}\t${line}`;
+const formatLine = ({ lineNumber, line }) =>
+  isFinite(lineNumber) ? `${lineNumber}\t${line}` : line;
 
-const formatLines = numberedLines =>
-  numberedLines.map(({ lineNumber, line }) =>
-    lineNumber ? formatLine(lineNumber, line) : line
-  );
+const formatLines = numberedLines => numberedLines.map(formatLine);
 
 const numberLines = (lines, startNum, increment) => {
   const countLine = createLineCounter(startNum, increment);
