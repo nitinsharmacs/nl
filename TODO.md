@@ -8,10 +8,10 @@
 - [ ] Consider a richer structure to be returned from `numberLines`
 - [ ] Consider separating `testNlLib.js`
 - [ ] Consider refactoring `formatLines` and move functionality down to `formatLine`
-- [ ] Extract line related functions into a different lib
 
 **DONE:**
 
+- [x] Extract line related functions into a different lib
 - [x] ~~Consider closure for a counter in `numberedLine` ?~~
 - [x] Improve `numberLines` by refactoring the forEach block
 - [x] Change default behaviour to not number empty lines
