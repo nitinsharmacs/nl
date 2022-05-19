@@ -2,18 +2,28 @@ const { splitLines, joinLines } = require('./stringUtils.js');
 
 const formatLine = (lineNumber, line) => `${lineNumber}\t${line}`;
 
+const formatLines = numberedLines =>
+  numberedLines.map(({ lineNumber, line }) =>
+    lineNumber ? formatLine(lineNumber, line) : line
+  );
+
+const numberNonEmptyLine = function (line) {
+  const numberedLine = { line };
+  if (line !== '') {
+    numberedLine.lineNumber = this.currentLineNum;
+    this.currentLineNum += this.increment;
+  }
+  return numberedLine;
+};
+
+const createCountableLine = (startNum, increment) => {
+  return numberNonEmptyLine.bind({ currentLineNum: startNum, increment });
+};
+
 const numberLines = (lines, startNum, increment) => {
-  let lineNumber = startNum;
-  const numberedLines = [];
-  lines.forEach(line => {
-    let formattedLine = line;
-    if (line !== '') {
-      formattedLine = formatLine(lineNumber, line);
-      lineNumber += increment;
-    }
-    numberedLines.push(formattedLine);
-  });
-  return numberedLines;
+  const countLine = createCountableLine(startNum, increment);
+  const numberedLines = lines.map(countLine);
+  return formatLines(numberedLines);
 };
 
 const nl = (content, { startNum, increment }) => {

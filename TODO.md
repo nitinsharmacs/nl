@@ -5,12 +5,15 @@
 
 **MAYBE:**
 
-- [ ] Consider closure for a counter in `numberedLine` ?
 - [ ] Consider a richer structure to be returned from `numberLines`
 - [ ] Consider separating `testNlLib.js`
+- [ ] Consider refactoring `formatLines` and move functionality down to `formatLine`
+- [ ] Extract line related functions into a different lib
 
 **DONE:**
 
+- [x] ~~Consider closure for a counter in `numberedLine` ?~~
+- [x] Improve `numberLines` by refactoring the forEach block
 - [x] Change default behaviour to not number empty lines
   - [x] Change existing tests
   - [x] Empty line should not be _counted_ but should be printed
