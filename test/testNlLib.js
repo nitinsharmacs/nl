@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { nl, formatLine, numberLines, nlMain } = require('../src/nlLib.js');
+const { nl, numberLines } = require('../src/nlLib.js');
 
 describe('nl', () => {
   it('should not number an empty line', () => {
@@ -28,23 +28,6 @@ describe('nl', () => {
   it('should increment a line number by 2', () => {
     const options = { startNum: 1, increment: 2 };
     assert.strictEqual(nl('hello\nbye', options), '1\thello\n3\tbye');
-  });
-});
-
-describe('formatLine', () => {
-  it('should format a line with a given line number', () => {
-    assert.strictEqual(
-      formatLine({ lineNumber: 1, line: 'hello' }),
-      '1\thello'
-    );
-    assert.strictEqual(
-      formatLine({ lineNumber: 2, line: 'world' }),
-      '2\tworld'
-    );
-  });
-
-  it('should not format a non-numbered line', () => {
-    assert.strictEqual(formatLine({ line: 'hello' }), 'hello');
   });
 });
 
@@ -92,20 +75,5 @@ describe('numberLines', () => {
       '2\thello',
       '5\tbye',
     ]);
-  });
-});
-
-const shouldReturn = (mockFile, content) => {
-  return function (fileName, encoding) {
-    assert.equal(mockFile, fileName);
-    assert.equal(encoding, 'utf8');
-    return content;
-  };
-};
-
-describe('nlMain', () => {
-  it('should number the lines of the given file', () => {
-    const mockReadFileSync = shouldReturn('content.txt', 'hello');
-    assert.strictEqual(nlMain('content.txt', mockReadFileSync), '1\thello');
   });
 });
