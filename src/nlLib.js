@@ -1,25 +1,24 @@
 const { createLineCounter } = require('./line.js');
 const { splitLines, joinLines } = require('./stringUtils.js');
 
-const formatLine = ({ lineNumber, line }) =>
-  isFinite(lineNumber) ? `${lineNumber}\t${line}` : line;
-
-const formatLines = numberedLines => numberedLines.map(formatLine);
+const formatLine = ({ lineNumber, line }, separator) =>
+  isFinite(lineNumber) ? `${lineNumber}${separator}${line}` : line;
 
 const numberLines = (lines, startNum, increment) => {
   const countLine = createLineCounter(startNum, increment);
   return lines.map(countLine);
 };
 
-const nl = (content, { startNum, increment }) => {
+const nl = (content, { startNum, increment, separator }) => {
   const lines = splitLines(content);
   const numberedLines = numberLines(lines, startNum, increment);
-  return joinLines(formatLines(numberedLines));
+  const formattedLines = numberedLines.map(line => formatLine(line, separator));
+  return joinLines(formattedLines);
 };
 
 const nlMain = (fileName, readFile) => {
   const content = readFile(fileName, 'utf8');
-  return nl(content, { startNum: 1, increment: 1 });
+  return nl(content, { startNum: 1, increment: 1, separator: '\t' });
 };
 
 exports.nl = nl;

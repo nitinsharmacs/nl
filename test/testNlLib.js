@@ -3,31 +3,36 @@ const { nl, numberLines } = require('../src/nlLib.js');
 
 describe('nl', () => {
   it('should not number an empty line', () => {
-    const options = { increment: 1, startNum: 1 };
+    const options = { increment: 1, startNum: 1, separator: '\t' };
     assert.strictEqual(nl('', options), '');
   });
 
   it('should number a line starting from 1', () => {
-    const options = { increment: 1, startNum: 1 };
+    const options = { increment: 1, startNum: 1, separator: '\t' };
     assert.strictEqual(nl('hello', options), '1\thello');
     assert.strictEqual(nl('bye', options), '1\tbye');
   });
 
   it('should number two lines starting from 1', () => {
-    const options = { increment: 1, startNum: 1 };
+    const options = { increment: 1, startNum: 1, separator: '\t' };
     assert.strictEqual(nl('hello\nbye', options), '1\thello\n2\tbye');
     assert.strictEqual(nl('bye\nhello', options), '1\tbye\n2\thello');
   });
 
   it('should number a line starting from 2', () => {
-    const options = { increment: 1, startNum: 2 };
+    const options = { increment: 1, startNum: 2, separator: '\t' };
     assert.strictEqual(nl('hello', options), '2\thello');
     assert.strictEqual(nl('bye', options), '2\tbye');
   });
 
   it('should increment a line number by 2', () => {
-    const options = { startNum: 1, increment: 2 };
+    const options = { startNum: 1, increment: 2, separator: '\t' };
     assert.strictEqual(nl('hello\nbye', options), '1\thello\n3\tbye');
+  });
+
+  it('should number a line with | as a separator', () => {
+    const options = { startNum: 1, increment: 1, separator: '|' };
+    assert.strictEqual(nl('hello', options), '1|hello');
   });
 });
 

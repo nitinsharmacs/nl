@@ -1,7 +1,6 @@
 **TODO:**
 
 - [ ] Implement `nl` with number all lines option (-ba)
-- [ ] Implement `nl` with separator option (-s)
 - [ ] Provide a default of 1 for `startNum` in `nl`
 
 **MAYBE:**
@@ -10,6 +9,7 @@
 
 **DONE:**
 
+- [x] Implement `nl` with separator option (-s)
 - [x] Consider a richer structure to be returned from `numberLines`
 - [x] Consider separating `testNlLib.js`
 - [x] Consider refactoring `formatLines` and move functionality down to `formatLine`
