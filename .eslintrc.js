@@ -53,7 +53,7 @@ module.exports = {
     'no-return-assign': 'error',
     'no-useless-return': 'error',
     'max-depth': 'error',
-    'no-mixed-operators': 'error',
+    'no-mixed-operators': 'warn',
     complexity: ['error', 4],
     'no-extra-parens': 'error',
     'no-template-curly-in-string': 'error',

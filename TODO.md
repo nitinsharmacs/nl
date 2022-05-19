@@ -1,6 +1,5 @@
 **TODO:**
 
-- [ ] Implement `nl` with increment option (-i)
 - [ ] Implement `nl` with separator option (-s)
 - [ ] Provide a default of 1 for `startNum` in `nl`
 - [ ] Investigate how `nl` handles empty lines
@@ -12,6 +11,7 @@
 
 **DONE:**
 
+- [x] Implement `nl` with increment option (-i)
 - [x] Implement options as a parameter to `nl`
 - [x] Move `splitLines`, `joinLines` and `NEWLINE` to a different lib
 - [x] Implement `nl file` without any fancy options
