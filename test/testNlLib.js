@@ -3,22 +3,22 @@ const { nl, formatLine, numberLines, nlMain } = require('../src/nlLib.js');
 
 describe('nl', () => {
   it('should number an empty line starting from 1', () => {
-    assert.strictEqual(nl('', 1), '1\t');
+    assert.strictEqual(nl('', { startNum: 1 }), '1\t');
   });
 
   it('should number a line starting from 1', () => {
-    assert.strictEqual(nl('hello', 1), '1\thello');
-    assert.strictEqual(nl('bye', 1), '1\tbye');
+    assert.strictEqual(nl('hello', { startNum: 1 }), '1\thello');
+    assert.strictEqual(nl('bye', { startNum: 1 }), '1\tbye');
   });
 
   it('should number two lines starting from 1', () => {
-    assert.strictEqual(nl('hello\nbye', 1), '1\thello\n2\tbye');
-    assert.strictEqual(nl('bye\nhello', 1), '1\tbye\n2\thello');
+    assert.strictEqual(nl('hello\nbye', { startNum: 1 }), '1\thello\n2\tbye');
+    assert.strictEqual(nl('bye\nhello', { startNum: 1 }), '1\tbye\n2\thello');
   });
 
   it('should number a line starting from 2', () => {
-    assert.strictEqual(nl('hello', 2), '2\thello');
-    assert.strictEqual(nl('bye', 2), '2\tbye');
+    assert.strictEqual(nl('hello', { startNum: 2 }), '2\thello');
+    assert.strictEqual(nl('bye', { startNum: 2 }), '2\tbye');
   });
 });
 

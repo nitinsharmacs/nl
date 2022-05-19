@@ -84,6 +84,7 @@ module.exports = {
     yoda: 'error',
     'no-undefined': 'error',
     'no-lonely-if': 'error',
+    'no-unused-vars': 'warn',
   },
   overrides: [
     {
