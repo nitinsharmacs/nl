@@ -33,47 +33,58 @@ describe('nl', () => {
 
 describe('numberLines', () => {
   it('should not number empty lines by default', () => {
-    assert.deepStrictEqual(numberLines([''], 1, 1), ['']);
-    assert.deepStrictEqual(numberLines(['', 'hello'], 1, 1), ['', '1\thello']);
+    assert.deepStrictEqual(numberLines([''], 1, 1), [{ line: '' }]);
+    assert.deepStrictEqual(numberLines(['', 'hello'], 1, 1), [
+      { line: '' },
+      { lineNumber: 1, line: 'hello' },
+    ]);
     assert.deepStrictEqual(numberLines(['a', '', 'b'], 1, 1), [
-      '1\ta',
-      '',
-      '2\tb',
+      { lineNumber: 1, line: 'a' },
+      { line: '' },
+      { lineNumber: 2, line: 'b' },
     ]);
   });
 
   it('should number a single line starting from 1', () => {
-    assert.deepStrictEqual(numberLines(['hello'], 1, 1), ['1\thello']);
-    assert.deepStrictEqual(numberLines(['bye'], 1, 1), ['1\tbye']);
+    assert.deepStrictEqual(numberLines(['hello'], 1, 1), [
+      { lineNumber: 1, line: 'hello' },
+    ]);
+    assert.deepStrictEqual(numberLines(['bye'], 1, 1), [
+      { lineNumber: 1, line: 'bye' },
+    ]);
   });
 
   it('should number multiple lines starting from 1', () => {
     assert.deepStrictEqual(numberLines(['hello', 'bye'], 1, 1), [
-      '1\thello',
-      '2\tbye',
+      { lineNumber: 1, line: 'hello' },
+      { lineNumber: 2, line: 'bye' },
     ]);
     assert.deepStrictEqual(numberLines(['bye', 'hello'], 1, 1), [
-      '1\tbye',
-      '2\thello',
+      { lineNumber: 1, line: 'bye' },
+      { lineNumber: 2, line: 'hello' },
     ]);
   });
 
   it('should number a single line starting from 2', () => {
-    assert.deepStrictEqual(numberLines(['hello'], 2, 1), ['2\thello']);
-    assert.deepStrictEqual(numberLines(['bye'], 2, 1), ['2\tbye']);
+    assert.deepStrictEqual(numberLines(['hello'], 2, 1), [
+      { lineNumber: 2, line: 'hello' },
+    ]);
+    assert.deepStrictEqual(numberLines(['bye'], 2, 1), [
+      { lineNumber: 2, line: 'bye' },
+    ]);
   });
 
   it('should increment line number by 2', () => {
     assert.deepStrictEqual(numberLines(['hello', 'bye'], 1, 2), [
-      '1\thello',
-      '3\tbye',
+      { lineNumber: 1, line: 'hello' },
+      { lineNumber: 3, line: 'bye' },
     ]);
   });
 
   it('should increment line numbers starting at 2 by 3', () => {
     assert.deepStrictEqual(numberLines(['hello', 'bye'], 2, 3), [
-      '2\thello',
-      '5\tbye',
+      { lineNumber: 2, line: 'hello' },
+      { lineNumber: 5, line: 'bye' },
     ]);
   });
 });

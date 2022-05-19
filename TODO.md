@@ -6,11 +6,11 @@
 
 **MAYBE:**
 
-- [ ] Consider a richer structure to be returned from `numberLines`
 - [ ] Consider moving `formatLine` and `formatLines` to `line.js`
 
 **DONE:**
 
+- [x] Consider a richer structure to be returned from `numberLines`
 - [x] Consider separating `testNlLib.js`
 - [x] Consider refactoring `formatLines` and move functionality down to `formatLine`
 - [x] Extract line related functions into a different lib

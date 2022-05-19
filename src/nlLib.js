@@ -8,14 +8,13 @@ const formatLines = numberedLines => numberedLines.map(formatLine);
 
 const numberLines = (lines, startNum, increment) => {
   const countLine = createLineCounter(startNum, increment);
-  const numberedLines = lines.map(countLine);
-  return formatLines(numberedLines);
+  return lines.map(countLine);
 };
 
 const nl = (content, { startNum, increment }) => {
   const lines = splitLines(content);
   const numberedLines = numberLines(lines, startNum, increment);
-  return joinLines(numberedLines);
+  return joinLines(formatLines(numberedLines));
 };
 
 const nlMain = (fileName, readFile) => {
