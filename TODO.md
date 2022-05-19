@@ -2,9 +2,6 @@
 
 - [ ] Implement `nl` with separator option (-s)
 - [ ] Provide a default of 1 for `startNum` in `nl`
-- [ ] Change default behaviour to not number empty lines
-  - [ ] Change existing tests
-  - [ ] Empty line should not be _counted_ but should be printed
 
 **MAYBE:**
 
@@ -14,6 +11,9 @@
 
 **DONE:**
 
+- [x] Change default behaviour to not number empty lines
+  - [x] Change existing tests
+  - [x] Empty line should not be _counted_ but should be printed
 - [x] Investigate how `nl` handles empty lines
 - [x] Implement `nl` with increment option (-i)
 - [x] Implement options as a parameter to `nl`

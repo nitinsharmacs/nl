@@ -2,11 +2,19 @@ const { splitLines, joinLines } = require('./stringUtils.js');
 
 const formatLine = (lineNumber, line) => `${lineNumber}\t${line}`;
 
-const numberLines = (lines, startNum, increment) =>
-  lines.map((line, index) => {
-    const lineNumber = index * increment + startNum;
-    return formatLine(lineNumber, line);
+const numberLines = (lines, startNum, increment) => {
+  let lineNumber = startNum;
+  const numberedLines = [];
+  lines.forEach(line => {
+    let formattedLine = line;
+    if (line !== '') {
+      formattedLine = formatLine(lineNumber, line);
+      lineNumber += increment;
+    }
+    numberedLines.push(formattedLine);
   });
+  return numberedLines;
+};
 
 const nl = (content, { startNum, increment }) => {
   const lines = splitLines(content);

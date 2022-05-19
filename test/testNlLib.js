@@ -2,9 +2,9 @@ const assert = require('assert');
 const { nl, formatLine, numberLines, nlMain } = require('../src/nlLib.js');
 
 describe('nl', () => {
-  it('should number an empty line starting from 1', () => {
+  it('should not number an empty line', () => {
     const options = { increment: 1, startNum: 1 };
-    assert.strictEqual(nl('', options), '1\t');
+    assert.strictEqual(nl('', options), '');
   });
 
   it('should number a line starting from 1', () => {
@@ -43,6 +43,16 @@ describe('formatLine', () => {
 });
 
 describe('numberLines', () => {
+  it('should not number empty lines by default', () => {
+    assert.deepStrictEqual(numberLines([''], 1, 1), ['']);
+    assert.deepStrictEqual(numberLines(['', 'hello'], 1, 1), ['', '1\thello']);
+    assert.deepStrictEqual(numberLines(['a', '', 'b'], 1, 1), [
+      '1\ta',
+      '',
+      '2\tb',
+    ]);
+  });
+
   it('should number a single line starting from 1', () => {
     assert.deepStrictEqual(numberLines(['hello'], 1, 1), ['1\thello']);
     assert.deepStrictEqual(numberLines(['bye'], 1, 1), ['1\tbye']);
