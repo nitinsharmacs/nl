@@ -1,11 +1,11 @@
-`nl [-bt] [-i incr] [-s sep] [-v startnum] file`
+`nl [-ba] [-i incr] [-s sep] [-v startnum] file`
 
 ```
 nl file
-  The nl utility reads lines from the named file, applies a configurable line numbering filter operation, and writes the result to the standard output.
+  The nl utility reads lines from the named file, applies a configurable line numbering filter operation, and writes the result to the standard output. By default, empty lines are not numbered.
 
-nl -bt file
-  Number only non-empty lines.
+nl -ba file
+  Number all lines including empty lines.
 
 nl -i incr file
   Specify the increment value used to number logical page lines.

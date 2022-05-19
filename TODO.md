@@ -2,15 +2,19 @@
 
 - [ ] Implement `nl` with separator option (-s)
 - [ ] Provide a default of 1 for `startNum` in `nl`
-- [ ] Investigate how `nl` handles empty lines
+- [ ] Change default behaviour to not number empty lines
+  - [ ] Change existing tests
+  - [ ] Empty line should not be _counted_ but should be printed
 
 **MAYBE:**
 
 - [ ] Consider closure for a counter in `numberedLine` ?
 - [ ] Consider a richer structure to be returned from `numberLines`
+- [ ] Consider separating `testNlLib.js`
 
 **DONE:**
 
+- [x] Investigate how `nl` handles empty lines
 - [x] Implement `nl` with increment option (-i)
 - [x] Implement options as a parameter to `nl`
 - [x] Move `splitLines`, `joinLines` and `NEWLINE` to a different lib
