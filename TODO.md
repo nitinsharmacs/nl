@@ -1,17 +1,17 @@
 **TODO:**
 
-- [ ] Implement a parseOptions function that parses command line arguments and returns an object of filename and options
-  - [ ] handles options and their arguments as separate elements
-  - [ ] Options should be parsed independent of order
-  - [ ] Report errors on invalid options(wrong option, invalid argument)
+- [ ] Report errors on invalid options(wrong option, invalid argument)
 - [ ] Implement `nl` with number all lines option (-ba)
-- [ ] Provide defaults for all options going into nl
 - [ ] Report error when unable to read file
 
 **MAYBE:**
 
 **DONE:**
 
+- [x] Implement a parseOptions function that parses command line arguments and returns an object of filename and options
+  - [x] handles options and their arguments as separate elements
+  - [x] Options should be parsed independent of order
+- [x] Provide defaults for all options going into nl
 - [x] Implement nl with command line options for -v
 - [x] ~~Consider moving `formatLine` and `formatLines` to `line.js`~~
 - [x] Implement `nl` with separator option (-s)

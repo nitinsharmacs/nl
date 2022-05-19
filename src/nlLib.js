@@ -1,4 +1,5 @@
 const { createLineCounter } = require('./line.js');
+const { parseArgs } = require('./parseArgs.js');
 const { splitLines, joinLines } = require('./stringUtils.js');
 
 const formatLine = ({ lineNumber, line }, separator) =>
@@ -17,10 +18,9 @@ const nl = (content, { startNum, increment, separator }) => {
 };
 
 const nlMain = (readFile, ...args) => {
-  const fileName = args[args.length - 1];
-  const startNum = args[1] && args[0] === '-v' ? +args[1] : 1;
+  const { fileName, options } = parseArgs(args);
   const content = readFile(fileName, 'utf8');
-  return nl(content, { startNum, increment: 1, separator: '\t' });
+  return nl(content, options);
 };
 
 exports.nl = nl;
