@@ -19,7 +19,16 @@ const nl = (content, { startNum, increment, separator }) => {
 
 const nlMain = (readFile, ...args) => {
   const { fileName, options } = parseArgs(args);
-  const content = readFile(fileName, 'utf8');
+  let content;
+  try {
+    content = readFile(fileName, 'utf8');
+  } catch (error) {
+    throw {
+      name: 'FileReadError',
+      message: `Unable to read ${fileName}`,
+      fileName,
+    };
+  }
   return nl(content, options);
 };
 

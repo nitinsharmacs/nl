@@ -2,12 +2,12 @@
 
 - [ ] Report errors on invalid options(wrong option, invalid argument)
 - [ ] Implement `nl` with number all lines option (-ba)
-- [ ] Report error when unable to read file
 
 **MAYBE:**
 
 **DONE:**
 
+- [x] Report error when unable to read file
 - [x] Implement a parseOptions function that parses command line arguments and returns an object of filename and options
   - [x] handles options and their arguments as separate elements
   - [x] Options should be parsed independent of order

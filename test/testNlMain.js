@@ -22,4 +22,13 @@ describe('nlMain', () => {
       '5\thello'
     );
   });
+
+  it('should number the lines of the given file starting from 5', () => {
+    const mockReadFileSync = shouldReturn('content.txt', 'hello');
+    assert.throws(() => nlMain(mockReadFileSync, 'missing.txt'), {
+      name: 'FileReadError',
+      message: 'Unable to read missing.txt',
+      fileName: 'missing.txt',
+    });
+  });
 });

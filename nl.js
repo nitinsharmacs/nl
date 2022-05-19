@@ -2,7 +2,12 @@ const fs = require('fs');
 
 const { nlMain } = require('./src/nlLib.js');
 
-const main = () =>
-  console.log(nlMain(fs.readFileSync, ...process.argv.slice(2)));
+const main = () => {
+  try {
+    console.log(nlMain(fs.readFileSync, ...process.argv.slice(2)));
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 
 main();
