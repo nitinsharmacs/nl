@@ -12,6 +12,14 @@ const shouldReturn = (mockFile, content) => {
 describe('nlMain', () => {
   it('should number the lines of the given file', () => {
     const mockReadFileSync = shouldReturn('content.txt', 'hello');
-    assert.strictEqual(nlMain('content.txt', mockReadFileSync), '1\thello');
+    assert.strictEqual(nlMain(mockReadFileSync, 'content.txt'), '1\thello');
+  });
+
+  it('should number the lines of the given file starting from 5', () => {
+    const mockReadFileSync = shouldReturn('content.txt', 'hello');
+    assert.strictEqual(
+      nlMain(mockReadFileSync, '-v', '5', 'content.txt'),
+      '5\thello'
+    );
   });
 });

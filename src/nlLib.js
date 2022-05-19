@@ -16,9 +16,11 @@ const nl = (content, { startNum, increment, separator }) => {
   return joinLines(formattedLines);
 };
 
-const nlMain = (fileName, readFile) => {
+const nlMain = (readFile, ...args) => {
+  const fileName = args[args.length - 1];
+  const startNum = args[1] && args[0] === '-v' ? +args[1] : 1;
   const content = readFile(fileName, 'utf8');
-  return nl(content, { startNum: 1, increment: 1, separator: '\t' });
+  return nl(content, { startNum, increment: 1, separator: '\t' });
 };
 
 exports.nl = nl;
