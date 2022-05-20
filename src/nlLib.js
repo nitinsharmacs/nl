@@ -5,8 +5,16 @@ const { splitLines, joinLines } = require('./stringUtils.js');
 const formatLine = ({ lineNumber, line }, separator) =>
   isFinite(lineNumber) ? `${lineNumber}${separator}${line}` : line;
 
+const isNotEmptyLine = (line) => {
+  return line !== '';
+};
+
 const numberLines = (lines, startNum, increment) => {
-  const countLine = createLineCounter(startNum, increment);
+  const countLine = createLineCounter({
+    start: startNum,
+    incr: increment,
+    predicate: isNotEmptyLine
+  });
   return lines.map(countLine);
 };
 

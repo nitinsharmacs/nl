@@ -1,14 +1,15 @@
-const numberNonEmptyLine = function (line) {
+const lineNumberer = function (line) {
   const numberedLine = { line };
-  if (line !== '') {
-    numberedLine.lineNumber = this.currentLineNum;
-    this.currentLineNum += this.increment;
+  if (this.predicate(line)) {
+    numberedLine.lineNumber = this.currentLine;
+    this.currentLine += this.increment;
   }
   return numberedLine;
 };
 
-const createLineCounter = (startNum, increment) => {
-  return numberNonEmptyLine.bind({ currentLineNum: startNum, increment });
+const createLineCounter = ({ start, incr, predicate }) => {
+  const numbererConfig = { currentLine: start, increment: incr, predicate };
+  return lineNumberer.bind(numbererConfig);
 };
 
 exports.createLineCounter = createLineCounter;
